@@ -1,14 +1,14 @@
 #lang racket
 
-;; remove-first: List -> List
-;; usage: (remove-first symbol list) = remove first occurence of symbol
-(define remove-first
+;; list.remove-first-value: List -> List
+;; usage: (list.remove-first-value symbol list) = remove first occurence of symbol
+(define list.remove-first-value
   (lambda (s los)
     (if (null? los)
         '()
         (if (eqv? (car los) s)
             (cdr los)
-            (cons (car los) (remove-first s (cdr los)))))))
+            (cons (car los) (list.remove-first-value s (cdr los)))))))
 
 
 
@@ -18,7 +18,7 @@
 ; (define id expr):
 ; define global identifier
 
-; (lambda (args...) body) 
+; (lambda (args...) body)
 ; define a function
 
 ; (eqv? a b)
